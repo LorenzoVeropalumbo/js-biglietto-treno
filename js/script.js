@@ -5,23 +5,43 @@
 // va applicato uno sconto del 40% per gli over 65.
 // L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 
-alert("Crea il tuo biglietto")
+// FUNCTION
+function financial(x) {
+  return Number.parseFloat(x).toFixed(2);
+}
+
+alert("Crea il tuo biglietto");
 
 // Km of travel
-let TotalKm = prompt("Quanti Km di percorreza dei fare")
+let TotalKm = parseInt(prompt("Quanti Km di percorreza dei fare"));
 
 // Check if TotalKm is a numer string
 if (isNaN(TotalKm)) {
-  alert("Insterici un valure numerico")
-  TotalKm = prompt("Quanti Km di percorreza dei fare")
+  alert("Insterici un valure numerico");
+  TotalKm = parseInt(prompt("Quanti Km di percorreza dei fare"));
 }
 
-
 // passenger Age 
-let UserAge = prompt("Inserisci la tua età")
+let UserAge = parseInt(prompt("Inserisci la tua età"));
 
 // Check if passenger Age is a numer string
 if (isNaN(UserAge)) {
-  alert("Insterici un valure numerico")
-  UserAge = prompt("Inserisci la tua età")
+  alert("Insterici un valure numerico");
+  UserAge = parseInt(prompt("Inserisci la tua età"));
 }
+
+// calculate the standard ticket price
+let TicketPrice = TotalKm * 0.21;
+console.log(financial(TicketPrice));
+console.log(TicketPrice.toFixed(2));
+
+// Applay a discount if possible
+if (UserAge < 18) {
+  console.log("Minorenne");
+}
+else if (UserAge >= 65) {
+  console.log("Over")
+}
+else{
+  console.log(TicketPrice);
+} 
