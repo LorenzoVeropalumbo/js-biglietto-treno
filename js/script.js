@@ -7,7 +7,7 @@
 
 // FUNCTION TwoDecimal
 function TwoDecimal(x) {
-  return Number.parseFloat(x).toFixed(2);
+  return x.toFixed(2);
 }
 
 // Start crate ticket
@@ -46,16 +46,19 @@ if (UserAge < 18) {
   console.log("Minorenne");
   discount = TicketPrice * 20 / 100;
   finalPrice = TicketPrice - discount;
-  console.log(finalPrice.toFixed(2))
 }
 else if (UserAge >= 65) {
   console.log("Over")
   discount = TicketPrice * 40 / 100;
   finalPrice = TicketPrice - discount;
-  console.log(finalPrice.toFixed(2))
 }
 else{
-  console.log(TwoDecimal(TicketPrice));
+  finalPrice = TicketPrice;
 } 
 
 // Create user message
+let userMessage = ("il costo del biglietto è di " + finalPrice.toFixed(2));
+
+document.getElementById('ticket-price').innerHTML = userMessage;
+alert(userMessage);
+
